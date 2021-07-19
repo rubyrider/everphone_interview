@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_134527) do
   create_table "employees", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "Name", null: false
+    t.string "name", null: false
   end
 
   create_table "taxonomies", force: :cascade do |t|

@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Employee, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#interests' do
+    let!(:employee) do
+      FactoryBot.create(
+        :employee,
+        interests: [FactoryBot.build(:taxonomy)]
+      )
+    end
+    
+    it 'should decide to have interests' do
+      expect(employee.interests.size).to be == 1
+    end
+  end
 end
