@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_133239) do
+ActiveRecord::Schema.define(version: 2021_07_19_134527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2021_07_19_133239) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "Name", null: false
+  end
+
+  create_table "taxonomies", force: :cascade do |t|
+    t.string "name"
+    t.string "taxon_able_type", null: false
+    t.bigint "taxon_able_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_taxonomies_on_name"
+    t.index ["taxon_able_type", "taxon_able_id"], name: "index_taxonomies_on_taxon_able"
   end
 
 end
